@@ -5,9 +5,9 @@ pipeline {
             steps {
                 script {
                     sh 'mkdir sample-application'
-                    sh 'cd sample-application/'
+                    sh 'cd  /var/lib/jenkins/workspace/buildsimplewebapp/sample-application/'
                     sh 'sudo git clone https://github.com/dockersamples/example-voting-app.git'
-                    sh 'cd example-voting-app/ '
+                    sh 'cd  /var/lib/jenkins/workspace/buildsimplewebapp/sample-application/example-voting-app/ '
                     sh 'ls'
                 }
             }
