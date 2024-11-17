@@ -28,7 +28,7 @@ pipeline {
                 script {
                     sh 'sudo docker run  -d --name=redis redis'
                     sh 'docker run  -d--name=db postgres:9.4'
-                    sh 'docker run -d --link redis:redis --link db:db worker-app
+                    sh 'docker run -d --link redis:redis --link db:db worker-app'
                     sh 'sudo docker run  -d -p 5000:80 --link redis:redis voting-app'
                     sh 'sudo docker run  -d -p 5001:80 --link db:db voting-app'
                 }
