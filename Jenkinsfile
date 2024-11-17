@@ -13,15 +13,15 @@ pipeline {
             steps {
                 script {
                     sh 'cat /var/lib/jenkins/workspace/buildsimplewebapp/example-voting-app/vote/Dockerfile'
-                    sh 'docker build /var/lib/jenkins/workspace/buildsimplewebapp/example-voting-app/vote/ -t voting-app'
-                    sh 'docker images'
+                    sh 'sudo docker build /var/lib/jenkins/workspace/buildsimplewebapp/example-voting-app/vote/ -t voting-app'
+                    sh 'sudo docker images'
                 }
             }
         }
         stage('Run the voting app  ') {
             steps {
                 script {
-                    sh 'docker run -p 5000:80 voting-app'
+                    sh 'sudo docker run -p 5000:80 voting-app'
                 }
             }
         }
