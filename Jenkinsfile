@@ -5,7 +5,7 @@ pipeline {
             steps {
                 script {
                     sh 'mkdir sample-application'
-                    sh 'cd /sample-application/'
+                    sh 'cd sample-application/'
                     sh 'sudo git clone https://github.com/dockersamples/example-voting-app.git'
                     sh 'cd example-voting-app/ '
                     sh 'ls'
@@ -15,7 +15,7 @@ pipeline {
         stage('Building the voting app image ') {
             steps {
                 script {
-                    sh 'cd /vote/ '
+                    sh 'cd vote/ '
                     sh 'cat Dockerfile'
                     sh 'docker build . -t voting-app'
                     sh 'docker images'
