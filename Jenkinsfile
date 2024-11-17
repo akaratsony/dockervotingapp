@@ -30,7 +30,7 @@ pipeline {
                     sh 'sleep 5'
                     sh 'sudo docker run  -d -p 5000:80 --link redis:redis voting-app'
                     sh 'sleep 5'
-                    sh 'sudo docker run  -d --name=db postgres:9.4 '
+                    sh 'sudo docker run  -d --name=db postgres:15-alpine '
                     sh 'sleep 10'
                     sh 'sudo docker run -d --link redis:redis --link db:db worker-app'
                     sh 'sleep 5'
