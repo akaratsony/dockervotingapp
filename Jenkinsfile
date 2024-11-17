@@ -4,20 +4,16 @@ pipeline {
         stage('Cloning the repository ') {
             steps {
                 script {
-                    sh 'mkdir sample-application'
-                    sh 'cd  /var/lib/jenkins/workspace/buildsimplewebapp/sample-application/'
                     sh 'sudo git clone https://github.com/dockersamples/example-voting-app.git'
-                    sh 'cd  /var/lib/jenkins/workspace/buildsimplewebapp/sample-application/example-voting-app/ '
-                    sh 'ls'
+                    sh 'ls  /var/lib/jenkins/workspace/buildsimplewebapp/example-voting-app/ '
                 }
             }
         }
         stage('Building the voting app image ') {
             steps {
                 script {
-                    sh 'cd vote/ '
-                    sh 'cat Dockerfile'
-                    sh 'docker build . -t voting-app'
+                    sh 'cat /var/lib/jenkins/workspace/buildsimplewebapp/example-voting-app/vote/Dockerfile'
+                    sh 'docker build /var/lib/jenkins/workspace/buildsimplewebapp/example-voting-app/vote/ -t voting-app'
                     sh 'docker images'
                 }
             }
